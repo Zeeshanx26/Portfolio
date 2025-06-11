@@ -1,0 +1,275 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Portfolio by Zeeshan Khawar</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	<style>
+		/* Section styling */
+		.section {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 90%;
+			max-width: 700px;
+			background: rgba(0, 0, 0, 0.85);
+			color: #fff;
+			padding: 30px 40px;
+			border-radius: 15px;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.5s ease, visibility 0.5s ease;
+			z-index: 5;
+			text-align: left;
+		}
+
+		.section.active {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.section h2 {
+			margin-bottom: 15px;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+			padding-bottom: 10px;
+		}
+
+		#header.fade-out {
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity 0.5s ease;
+		}
+
+		#header.fade-in {
+			opacity: 1;
+			pointer-events: all;
+			transition: opacity 0.5s ease;
+		}
+
+		.nav-buttons {
+			margin-top: 30px;
+		}
+
+		.nav-buttons a {
+			cursor: pointer;
+			margin: 0 15px;
+			color: #fff;
+			font-weight: bold;
+			text-decoration: none;
+			font-size: 1.2rem;
+			padding: 8px 15px;
+			border: 2px solid rgba(255, 255, 255, 0.3);
+			border-radius: 5px;
+			transition: all 0.3s ease;
+		}
+
+		.nav-buttons a:hover {
+			background: rgba(255, 255, 255, 0.1);
+			border-color: rgba(255, 255, 255, 0.6);
+		}
+
+		.back-button {
+			margin-top: 20px;
+			color: #ccc;
+			cursor: pointer;
+			text-decoration: underline;
+			display: inline-block;
+			font-size: 1.1rem;
+		}
+
+		/* Social icons size reduction */
+		#header nav ul li a {
+			font-size: 0.9em;
+		}
+
+		/* Card layout */
+		.card-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 20px;
+		}
+
+		.card {
+			background: rgba(255, 255, 255, 0.05);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			padding: 20px;
+			border-radius: 12px;
+			transition: transform 0.3s ease, background 0.3s ease;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+
+		.card:hover {
+			transform: translateY(-5px);
+			background: rgba(255, 255, 255, 0.1);
+		}
+
+		.card h3 {
+			margin-top: 0;
+			color: #fff;
+		}
+
+		.card p {
+			color: #ccc;
+			margin-bottom: 0;
+		}
+
+		@media (min-width: 600px) {
+			.card-grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+	</style>
+</head>
+<body class="is-preload">
+
+	<div id="wrapper">
+		<div id="bg"></div>
+		<div id="overlay"></div>
+		<div id="main">
+
+			<!-- Header -->
+			<header id="header" class="fade-in">
+				<h1>Zeeshan Khawar</h1>
+				<p>Software Engineer &nbsp;&bull;&nbsp; Hulk &nbsp;&bull;&nbsp; Never asked for this</p>
+				<div class="nav-buttons">
+					<a onclick="showSection('about')">About Me</a>
+					<a onclick="showSection('education')">Education</a>
+					<a onclick="showSection('projects')">Projects</a>
+					<a onclick="showSection('contact')">Contact</a>
+					<a onclick="showSection('certificates')">Certificate</a>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="zeeshankhawar2000@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						<li><a href="https://x.com/zeh351" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="https://www.facebook.com/dhyshan.khawr" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="https://github.com/Zeeshanx26" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="https://www.linkedin.com/in/zeeshan-khawar-467bb4206/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+						<li><a href="https://www.instagram.com/zeeshan.x35/?next=%2F&hl=en#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="https://wa.me/qr/OKRJNIRFYLSUA1 " class="icon brands fa-whatsapp"><span class="label">Whatsapp</span></a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<!-- Section: About Me -->
+			<div id="about" class="section">
+				<h2>About Me</h2>
+				<div class="card-grid">
+					<div class="card">
+						<h3>Software Engineer</h3>
+						<p>I am a Software Engineer passionate about web apps, games, and clean design. I enjoy turning complex ideas into simple, functional software.</p>
+					</div>
+					<div class="card">
+						<h3>Skills & Interests</h3>
+						<p>Web Development, Game Design (Unreal Engine), Python for Data Science, UI/UX, Problem Solving, Learning New Tech.</p>
+					</div>
+				</div>
+				<span class="back-button" onclick="goBack()">← Back</span>
+			</div>
+
+			<!-- Section: Education -->
+			<div id="education" class="section">
+				<h2>Education</h2>
+				<div class="card-grid">
+					<div class="card">
+						<h3>Bachelor's in Software Engineering</h3>
+						<p>SZABIST University (2020–2024)</p>
+					</div>
+					<div class="card">
+						<h3>Intermediate in Science</h3>
+						<p>Completed with core focus on mathematics and physics.</p>
+					</div>
+					<div class="card">
+						<h3>Matriculation in Science</h3>
+						<p>High school with science subjects and strong academic record.</p>
+					</div>
+				</div>
+				<span class="back-button" onclick="goBack()">← Back</span>
+			</div>
+
+			<!-- Section: Projects -->
+			<div id="projects" class="section">
+				<h2>Projects</h2>
+				<div class="card-grid">
+					<div class="card">
+						<h3>TaskFlow</h3>
+						<p>A task management web app with to-do tracking, priorities, and deadlines.</p>
+					</div>
+					<div class="card">
+						<h3>City Builder Game</h3>
+						<p>A strategy simulation game developed in Unreal Engine 5.</p>
+					</div>
+					<div class="card">
+						<h3>Portfolio Website</h3>
+						<p>This responsive portfolio to showcase my education, skills, and contact info.</p>
+					</div>
+				</div>
+				<span class="back-button" onclick="goBack()">← Back</span>
+			</div>
+
+			<!-- Section: Contact -->
+			<div id="contact" class="section">
+				<h2>Contact</h2>
+				<p>Email: zeeshankhawar2000@gmail.com</p>
+				<p>Phone: +92-3175232226</p>
+				<span class="back-button" onclick="goBack()">← Back</span>
+			</div>
+
+			<!-- Section: Certificates -->
+			<div id="certificates" class="section">
+				<h2>Certificate</h2>
+				<div class="card-grid">
+					<div class="card">
+						<h3>International Business Machines (IBM)</h3>
+						<p>Completed a foundational course covering Python programming essentials for data science, including data manipulation, analysis, and visualization using key libraries like Pandas, NumPy, and Matplotlib. Gained hands-on experience in solving real-world data problems and automating tasks.</p>
+					</div>
+					<div class="card">
+						<h3>Codexcue Software Solutions</h3>
+						<p>I have successfully completed my Python Development Internship at CodexCue. This opportunity has been a tremendous learning experience, allowing me to work on real-world applications and strengthen my foundation in backend development.</p>
+					</div>
+					<div class="card">
+						<h3>Python Essentials 1 – Cisco Networking Academy & OpenEDG</h3>
+						<p>Gained fundamental knowledge of Python programming, including variables, loops, conditions, functions, and basic data structures like lists and strings. The course provided a beginner-friendly foundation in writing simple programs and solving basic coding challenges using Python.</p>
+					</div>
+					<div class="card">
+						<h3>Python Essentials 2 – Cisco Networking Academy & OpenEDG</h3>
+						<p>Built upon the basics to explore more advanced Python concepts such as object-oriented programming, exceptions, file handling, and more complex data structures like dictionaries and sets. Learned how to build scalable, modular code and strengthen problem-solving abilities in Python.</p>
+					</div>
+				</div>
+				<span class="back-button" onclick="goBack()">← Back</span>
+			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<span class="copyright">&copy; Zeeshan Khawar. Design: <a href="#">ZK</a>.</span>
+			</footer>
+		</div>
+	</div>
+
+	<!-- JavaScript for section toggle -->
+	<script>
+		function showSection(id) {
+			document.getElementById('header').classList.remove('fade-in');
+			document.getElementById('header').classList.add('fade-out');
+			document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+			setTimeout(() => {
+				document.getElementById(id).classList.add('active');
+			}, 300);
+		}
+
+		function goBack() {
+			document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+			document.getElementById('header').classList.remove('fade-out');
+			document.getElementById('header').classList.add('fade-in');
+		}
+
+		window.onload = function () {
+			document.body.classList.remove('is-preload');
+		};
+	</script>
+</body>
+</html>
